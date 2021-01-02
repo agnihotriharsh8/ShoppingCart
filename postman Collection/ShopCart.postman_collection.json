@@ -1,0 +1,293 @@
+{
+	"info": {
+		"_postman_id": "14c8e980-312a-488b-a2d2-9b294e5131a3",
+		"name": "ShopCart",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:3000/api/v1/auth/signup",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "Amit Pal",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "amit.pal@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "rootonetwo",
+							"type": "text"
+						},
+						{
+							"key": "gender",
+							"value": "male",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/auth/signup",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"auth",
+						"signup"
+					]
+				},
+				"description": "Firstly useed for signup."
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/api/v1/auth/login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "amit.pal@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "rootonetwo",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"auth",
+						"login"
+					]
+				},
+				"description": "Second: Used for login -> provides token required for other apis to work."
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/api/v1/items/",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwibmFtZSI6IkFtaXQgUGFsIiwiZW1haWwiOiJhbWl0LnBhbEBnbWFpbC5jb20iLCJnZW5kZXIiOiJtYWxlIiwiY3JlYXRlZEF0IjoiMjAyMS0wMS0wMlQwOTo0MjoxNS4yNTBaIiwidXBkYXRlZEF0IjoiMjAyMS0wMS0wMlQwOTo0MjoxNS4yNTBaIiwiaWF0IjoxNjA5NTgwNTczLCJleHAiOjE2MDk3NTMzNzN9.bdS77TPU6a32iwB9jL7wijn8lCBYY8FW5d75moBlxmQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "jingo tab",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "this is latest product",
+							"type": "text"
+						},
+						{
+							"key": "price",
+							"value": "1000",
+							"type": "text"
+						},
+						{
+							"key": "make",
+							"value": "2000",
+							"type": "text"
+						}
+					],
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/items/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"items",
+						""
+					]
+				},
+				"description": "Third: Create items using token."
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/api/v1/items",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "Surface YTab",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "A smart tab of microsoft",
+							"type": "text"
+						},
+						{
+							"key": "price",
+							"value": "2000",
+							"type": "text"
+						},
+						{
+							"key": "make",
+							"value": "2018",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/items",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"items"
+					]
+				},
+				"description": " Fourth:-fetches the list of all items added"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/api/v1/usercart",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwibmFtZSI6IkFtaXQgUGFsIiwiZW1haWwiOiJhbWl0LnBhbEBnbWFpbC5jb20iLCJnZW5kZXIiOiJtYWxlIiwiY3JlYXRlZEF0IjoiMjAyMS0wMS0wMlQwOTo0MjoxNS4yNTBaIiwidXBkYXRlZEF0IjoiMjAyMS0wMS0wMlQwOTo0MjoxNS4yNTBaIiwiaWF0IjoxNjA5NTgxNzE3LCJleHAiOjE2MDk3NTQ1MTd9.jXW5WJnHI4K58fnt7xyaX5zi6g5RRUUvk7LKUyxqbQQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"item\":{\r\n    \"id\":4\r\n}}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/usercart",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"usercart"
+					]
+				},
+				"description": "Fifth:- Adds the item to user cart. Using Token"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/api/v1/usercart/getMyCart",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwibmFtZSI6IkFtaXQgUGFsIiwiZW1haWwiOiJhbWl0LnBhbEBnbWFpbC5jb20iLCJnZW5kZXIiOiJtYWxlIiwiY3JlYXRlZEF0IjoiMjAyMS0wMS0wMlQwOTo0MjoxNS4yNTBaIiwidXBkYXRlZEF0IjoiMjAyMS0wMS0wMlQwOTo0MjoxNS4yNTBaIiwiaWF0IjoxNjA5NTgxNzE3LCJleHAiOjE2MDk3NTQ1MTd9.jXW5WJnHI4K58fnt7xyaX5zi6g5RRUUvk7LKUyxqbQQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/usercart/getMyCart",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"usercart",
+						"getMyCart"
+					]
+				},
+				"description": "Sixth:- Fetches currently ogged in user's cart. using token"
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
