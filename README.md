@@ -24,7 +24,7 @@
 
 ## Description
 
-Adding tyhe postman collection of this shopping cart backend project so that one can use them to run project .
+Adding the postman collection of this shopping cart backend project so that one can use them to run project .
 The order of APIs as per requirement is:-
 User Signup
 User Login
